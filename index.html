@@ -1,122 +1,275 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | finish lime</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">finish lime</div>
-      </div>
-    </div>
-    <script>
+<html>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="logo.ico" />
+  <style>
+    body {
+      background-color: #CACFD6;
+      width: 100%;
+      margin: 0;
+      font-family: myFirstFont;
+      background-image: url("scrapbookbackground.png");
+      background-blend-mode: soft-light;
+      background-size: contain;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
+    h1 {
+      font-size: 150px;
+      text-align: center;
+      padding: 150px 100px 0px 100px;
+      font-family: titleFont;
+      margin: 0;
+      color: #355070;
+    }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Build.data",
-        frameworkUrl: buildUrl + "/Build.framework.js",
-        codeUrl: buildUrl + "/Build.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "finish lime",
-        productVersion: "1.0",
-        showBanner: unityShowBanner,
-      };
+    h2 {
+      font-size: 40px;
+      text-align: center;
+      padding: 20px;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 0;
+      color: #355070;
+    }
 
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+    td {
+      padding-top: 150px;
+      width: 90%;
+    }
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+    .contact {
+      background-color: #355070;
+      width: 100%;
+      color: white;
+      font-size: 30px;
+      text-align: left;
+      border-top: #50627f solid 60px;
+      padding: 0;
+      margin-top: auto;
+    }
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
+    .contact td {
+      width: 50%;
+      text-align: top;
+      padding-top: 30px;
+      color: white;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+    .contact h4 {
+      font-weight: lighter;
+      font-size: 25px;
+    }
 
+    table {
+      margin: auto;
+      width: 90%;
+      padding-top: 20px;
+      margin-bottom: 50px;
+      color: #355070;
+    }
 
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+    @font-face {
+      font-family: myFirstFont;
+      src: url(CANDY___.otf);
+    }
 
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
+    @font-face {
+      font-family: titleFont;
+      src: url(KLINOM__.TTF);
+    }
 
-      loadingBar.style.display = "block";
+    .topnav {
+      overflow: hidden;
+      background-color: #c3cad3;
+    }
 
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
+    .topnav a {
+      float: left;
+      color: #355070;
+      text-align: center;
+      padding: 16px 70px 16px 70px;
+      text-decoration: none;
+      font-size: 30px;
+    }
 
-      document.body.appendChild(script);
+    .topnav a:hover {
+      background-color: #dde3ec;
+      color: #77859c;
+    }
 
-    </script>
-  </body>
+    .topnav a.active {
+      background-color: #d0d4da;
+      color: #50627f;
+    }
+
+    .topnav a.active:hover {
+      background-color: #dde3ec;
+      color: #77859c;
+    }
+
+    .profile div {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .imgL {
+      position: relative;
+      display: block;
+      width: 400px;
+      box-shadow: -30px -30px 0 #355070;
+      border: 5px;
+      border-color: #CACFD6;
+      border-style: solid;
+      margin-left: 150px;
+      float: left;
+      clear: both;
+    }
+
+    .imgR {
+      position: relative;
+      display: block;
+      width: 400px;
+      box-shadow: 30px -30px 0 #355070;
+      border-width: 5px;
+      border-color: #CACFD6;
+      margin-right: 150px;
+      border-style: solid;
+      float: right;
+      clear: both;
+    }
+
+    .pL {
+      margin-left: 100px;
+      margin-right: 200px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .pR {
+      margin-right: 100px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    p {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 30px;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topnav">
+    <a class="active" href="index.html">⌂ Home </a>
+    <a href="games.html"> ~Whoopsie Daisies~ </a>
+    <a href="https://kitchenisland.itch.io/re-treat"> ~Kitchen Island Re-Treat~ </a>
+    <a href="thestonegarden.html"> ~The Stone Garden~ </a>
+     <a href="fl.html"> ~Finish Lime~ </a>
+  </div>
+
+  <div>
+    <h1>TALIA OLIFF</h1>
+    <h2>coder, writer, & game designer.</h2>
+  </div>
+
+  <table>
+
+    <tr>
+      <td>
+        <img class="imgL" src="miamigirl.jpg">
+      </td>
+
+      <td>
+        <p class="pR">Hi! My name is Talia Oliff!
+          I'm a late 2003 baby born and raised in Cincinnati, Ohio,
+          along with my younger brother and sister, twins, born in early 2007.
+          I attend Miami University as a games & simulation major with 
+          minors in computer science and creative writing. I love my classes
+          and am very passionate about exploring all of their applications.
+          I love to create, whether that be through code, writing, or visual art!
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p class="pL">I hope to create games and apps to help people,
+          whether through escape, learning, and/or enjoyment.
+          I've been honing my craft my whole life, from writing
+          stories for my siblings when they were learning to read
+          to keeping my fourth grade daily pages all these years.
+          This love eventually expanded into coding and creating games.
+          I've made sight word games for my mom's kindergarten class,
+          designed games for nearly every one of my birthday parties,
+          and have consistently written since second grade.
+        </p>
+      </td>
+
+      <td>
+        <img class="imgR" src="butterfly colors.jpg">
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img class="imgL" src="meatsilks.jpg">
+      </td>
+
+      <td>
+        <p class="pR">In addition to games and apps, I'm working on a fantasy series 
+          as well as some other stories and novels! On top of academics, I participate 
+          in Hillel, a national Jewish organization at colleges, and am part of aerial silks. 
+          Other clubs I’ve participated in include astronomy club and the student disability club. 
+          I’m very passionate about invisible disabilities and accessibility and hope to
+          showcase that priority with my future works.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p class="pL">In my free time, I work on my creative projects, 
+          spend time with friends and family, read,
+          watch shows/videos, and/or try to get better at certain skills! 
+          Some interesting things about me include my love for swings,
+          the five years I spent working in a preK classroom, 
+          and that I'm currently in the process of learning ASL!
+        </p>
+      </td>
+
+      <td>
+        <img class="imgR" src="atanaturetheatre.png">
+      </td>
+    </tr>
+
+  </table>
+
+  <div class="contact">
+    <table>
+      <tr>
+        <td>
+          <h3>School Email</h3>
+          <h4>► olifftj@miamioh.edu</h4>
+        </td>
+        <td>
+          <h3>Work Email</h3>
+          <h4>► talia.oliff@gmail.com</h4>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
 </html>
