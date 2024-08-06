@@ -83,22 +83,32 @@
     }
 
     .topnav {
-      overflow: hidden;
       background-color: #c3cad3;
+      position: relative;
+      overflow: visible;
+      z-index: 1000;
     }
 
-    .topnav a {
+    .topnav a,
+    .dropdown .dropbtn {
       float: left;
       color: #355070;
       text-align: center;
       padding: 16px 70px 16px 70px;
       text-decoration: none;
-      font-size: 30px;
+      font-size: 40px;
+      font: myFirstFont;
+      background-color: inherit;
+      font-family: inherit;
+      outline: none;
+      border: none;
+      margin: 0;
     }
 
-    .topnav a:hover {
-      background-color: #dde3ec;
-      color: #77859c;
+    .topnav a:hover,
+    .dropdown:hover .drobtn {
+      color: inherit;
+      background-color: #c3cad3;
     }
 
     .topnav a.active {
@@ -106,9 +116,38 @@
       color: #50627f;
     }
 
-    .topnav a.active:hover {
-      background-color: #dde3ec;
-      color: #77859c;
+    .dropdown {
+      float: left;
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #c3cad3;
+      min-width: 100%;
+      box-shadow: 0px 8px 16px 0px;
+      z-index: 1001;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: #355070;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      font-size: 35px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
 
     .profile div {
@@ -171,16 +210,27 @@
 <body>
 
   <div class="topnav">
-    <a class="active" href="index.html">⌂ Home </a>
-    <a href="games.html"> ~Whoopsie Daisies~ </a>
-    <a href="https://kitchenisland.itch.io/re-treat"> ~Kitchen Island Re-Treat~ </a>
-    <a href="thestonegarden.html"> ~The Stone Garden~ </a>
-     <a href="fl.html"> ~Finish Lime~ </a>
+    <a class="active" href="index.html">⌂ Home</a>
+    <div class="dropdown">
+      <button class="dropbtn">My Game & App Projects</button>
+      <div class="dropdown-content">
+        <a href="">~Whoopsie Daisies~</a>
+        <a href="https://kitchenisland.itch.io/re-treat">~Kitchen Island Re-Treat</a>
+        <a href="fl.html">~Finish Lime~</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">My Writing Projects & Short Stories</button>
+      <div class="dropdown-content">
+        <a href="thestonegarden.html">~The Stone Garden~</a>
+      </div>
+    </div>
   </div>
 
   <div>
     <h1>TALIA OLIFF</h1>
     <h2>coder, writer, & game designer.</h2>
+    <h2>{⬇ about me ⬇}</h2>
   </div>
 
   <table>
@@ -194,7 +244,7 @@
         <p class="pR">Hi! My name is Talia Oliff!
           I'm a late 2003 baby born and raised in Cincinnati, Ohio,
           along with my younger brother and sister, twins, born in early 2007.
-          I attend Miami University as a games & simulation major with 
+          I attend Miami University as a games & simulation major with
           minors in computer science and creative writing. I love my classes
           and am very passionate about exploring all of their applications.
           I love to create, whether that be through code, writing, or visual art!
@@ -227,10 +277,10 @@
       </td>
 
       <td>
-        <p class="pR">In addition to games and apps, I'm working on a fantasy series 
-          as well as some other stories and novels! On top of academics, I participate 
-          in Hillel, a national Jewish organization at colleges, and am part of aerial silks. 
-          Other clubs I’ve participated in include astronomy club and the student disability club. 
+        <p class="pR">In addition to games and apps, I'm working on a fantasy series
+          as well as some other stories and novels! On top of academics, I participate
+          in Hillel, a national Jewish organization at colleges, and am part of aerial silks.
+          Other clubs I’ve participated in include astronomy club and the student disability club.
           I’m very passionate about invisible disabilities and accessibility and hope to
           showcase that priority with my future works.
         </p>
@@ -239,11 +289,11 @@
 
     <tr>
       <td>
-        <p class="pL">In my free time, I work on my creative projects, 
+        <p class="pL">In my free time, I work on my creative projects,
           spend time with friends and family, read,
-          watch shows/videos, and/or try to get better at certain skills! 
+          watch shows/videos, and/or try to get better at certain skills!
           Some interesting things about me include my love for swings,
-          the five years I spent working in a preK classroom, 
+          the five years I spent working in a preK classroom,
           and that I'm currently in the process of learning ASL!
         </p>
       </td>
