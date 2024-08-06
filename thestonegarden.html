@@ -13,7 +13,7 @@
         }
 
         object {
-            padding-top: 100px;
+            padding-top: 20px;
             padding-bottom: 100px;
             margin: auto;
             width: 70vw;
@@ -24,6 +24,11 @@
         @font-face {
             font-family: myFirstFont;
             src: url(CANDY___.otf);
+        }
+
+        @font-face {
+            font-family: aboutFont;
+            src: url(Slabthing-YvLL.ttf);
         }
 
         @font-face {
@@ -103,7 +108,62 @@
         }
 
         p {
-            font-size: 100px;
+            font-size: 20px;
+        }
+
+        .button {
+            margin-top: 100px;
+        }
+
+        .collapsible {
+            background-color: #355070;
+            color: white;
+            cursor: pointer;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 40px;
+            padding-left: 40px;
+            padding: 20px;
+            font-family: aboutFont;
+            margin-top: 150px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70vw;
+            align-items: center;
+            display: block;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #dde3ec;
+            color: black;
+        }
+
+        .content {
+            /* Adjust top and bottom padding as needed */
+            display: none;
+            overflow: hidden;
+            background-color: #dde3ec;
+            margin: auto;
+            width: 70vw;
+            padding-bottom: 20px;
+            /* Match this with the collapsible button width */
+        }
+
+        .content-inner {
+            width: 65vw;
+            /* This will be the width of your text */
+            margin: 0 auto;
+            /* Center the inner content */
+        }
+
+        .content p,
+        .content em {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: black;
+            font-size: 20px;
+            background-color: #dde3ec;
         }
     </style>
 </head>
@@ -127,9 +187,67 @@
         </div>
     </div>
 
+
+    <div style="height: 50px;"></div>
+
+    <button type="button" class="collapsible" id="collapsibleButton">About This Project ▼</button>
+    <div class="content">
+        <div class="content-inner">
+            <p>
+                In early 2020 I submitted to a short story contest. I may not have won but I was fortunate to recieve
+                the following from one of the organizers and will forever be grateful:
+            </p>
+            <br>
+            <em>
+                "Hello again,
+
+                I am sorry to send you another email about the Short Story Contest, but I wanted to let you know that
+                you
+                were one of the top 10 finalists in your category.
+
+                You may not have officially placed, but being in the top 10 is a major accomplishment, especially when
+                there
+                were 92 other competitors. I thought I would share this in order to encourage you. I know that putting
+                your
+                work out there can be difficult and I want to applaud your effort.
+
+                On a personal note, I loved this story! I love fantasy and adventure and this story had both. I also
+                enjoyed
+                how the ending had a cliffhanger. Who stole the ancient book and why? I could see this character in a
+                Young
+                Adult novel.
+
+                I hope you will consider entering the contest again next year.
+
+                Thanks again for sharing your story,
+
+                Ashley L.
+                Short Story Contest Chair
+                Adult Services Specialist
+                Williamsburg Branch Library"
+            </em>
+        </div>
+    </div>
+
     <object data="The Stone Garden By Talia Oliff.pdf" type="application/pdf" width="100%" height="500px">
         <p>Unable to display PDF file. <a href="The Stone Garden By Talia Oliff.pdf">Download</a> instead.</p>
     </object>
 </body>
 
 </html>
+<Script>
+    var collapsibleButton = document.getElementById("collapsibleButton");
+    var content = document.querySelector(".content");
+
+    collapsibleButton.addEventListener("click", function() {
+        this.classList.toggle("active");
+        
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            this.textContent = "About This Project ▼";
+        } else {
+            content.style.display = "block";
+            this.textContent = "About This Project ▲";
+        }
+    });
+</script>
