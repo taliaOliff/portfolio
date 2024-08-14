@@ -3,7 +3,7 @@
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="logo.ico" />
-    <title>The Stone Garden</title>
+    <title>Finish Lime</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -171,7 +171,7 @@
 <body>
     <div class="topnav">
         <a href="index.html">⌂ Home</a>
-        <div class="dropdown">
+        <div class="dropdown active">
             <button class="dropbtn">My Game & App Projects</button>
             <div class="dropdown-content">
                 <a href="whoopsiedaisies.html">~Whoopsie Daisies~</a>
@@ -179,7 +179,7 @@
                 <a href="finishlime.html">~Finish Lime~</a>
             </div>
         </div>
-        <div class="dropdown active">
+        <div class="dropdown">
             <button class="dropbtn">My Writing Projects & Short Stories</button>
             <div class="dropdown-content">
                 <a href="thestonegarden.html">~The Stone Garden~</a>
@@ -190,48 +190,20 @@
 
     <div style="height: 50px;"></div>
 
-    <button type="button" class="collapsible" id="collapsibleButton">About The Stone Garden ▼</button>
+    <button type="button" class="collapsible" id="collapsibleButton">About Kitchen Island Re-Treat ▼</button>
     <div class="content">
         <div class="content-inner">
             <p>
-                In early 2020 I submitted to a short story contest. I may not have won but I was fortunate to recieve
-                the following from one of the organizers and will forever be grateful:
+                In my IMS 453 (indie game development) class I spent the semester working on a project with a studio of
+                five people total. I was in charge of the puzzles, implementing the artists' animations into Unity, and
+                the player movement.
             </p>
-            <br>
-            <em>
-                "Hello again,
-
-                I am sorry to send you another email about the Short Story Contest, but I wanted to let you know that
-                you
-                were one of the top 10 finalists in your category.
-
-                You may not have officially placed, but being in the top 10 is a major accomplishment, especially when
-                there
-                were 92 other competitors. I thought I would share this in order to encourage you. I know that putting
-                your
-                work out there can be difficult and I want to applaud your effort.
-
-                On a personal note, I loved this story! I love fantasy and adventure and this story had both. I also
-                enjoyed
-                how the ending had a cliffhanger. Who stole the ancient book and why? I could see this character in a
-                Young
-                Adult novel.
-
-                I hope you will consider entering the contest again next year.
-
-                Thanks again for sharing your story,
-
-                Ashley L.
-                Short Story Contest Chair
-                Adult Services Specialist
-                Williamsburg Branch Library"
-            </em>
         </div>
     </div>
 
-    <object data="The Stone Garden By Talia Oliff.pdf" type="application/pdf" width="100%" height="500px">
-        <p>Unable to display PDF file. <a href="The Stone Garden By Talia Oliff.pdf">Download</a> instead.</p>
-    </object>
+    <button type="button" class="collapsible" id="collapsibleButton" onclick="playGame()" style="margin-top: 25px">Play
+        This Game ➤</button>
+
 </body>
 
 </html>
@@ -239,15 +211,19 @@
     var collapsibleButton = document.getElementById("collapsibleButton");
     var content = document.querySelector(".content");
 
-    collapsibleButton.addEventListener("click", function() {
+    collapsibleButton.addEventListener("click", function () {
         this.classList.toggle("active");
-        
+
         if (content.style.display === "block") {
             content.style.display = "none";
-            this.textContent = "About The Stone Garden ▼";
+            this.textContent = "About Kitchen Island Re-Treat ▼";
         } else {
             content.style.display = "block";
-            this.textContent = "About The Stone Garden ▲";
+            this.textContent = "About Kitchen Island Re-Treat ▲";
         }
     });
+
+    function playGame() {
+        window.location.href = 'https://kitchenisland.itch.io/re-treat';
+    }
 </script>
