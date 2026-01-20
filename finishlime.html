@@ -1,227 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <link rel="shortcut icon" type="image/x-icon" href="logo.ico" />
-    <title>Finish Lime Game</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-            font-family: myFirstFont;
-            background-color: #e7f9e6; /* background of page */
-        }
+<!--- https://www.dafont.com/open-dyslexic.font -->
 
-        object {
-            padding-top: 20px;
-            padding-bottom: 100px;
-            margin: auto;
-            width: 70vw;
-            height: 150vh;
-            display: block;
-        }
+<style>
+    /* fonts */
+    @font-face {
+        font-family: nameTitleTop;
+        src: url(OpenDyslexic-Bold.otf);
+    }
 
-        @font-face {
-            font-family: myFirstFont;
-            src: url(CANDY___.otf);
-        }
+    @font-face {
+        font-family: pagesTopLinks;
+        src: url(OpenDyslexicAlta-Regular.otf);
+    }
 
-        @font-face {
-            font-family: aboutFont;
-            src: url(Slabthing-YvLL.ttf);
-        }
+    @font-face {
+        font-family: textAndPars;
+        src: url(Tahoma.ttf);
+    }
 
-        @font-face {
-            font-family: titleFont;
-            src: url(SketchMeFreeVersion-qxyl.ttf);
-        }
+    @font-face {
+        font-family: subHeadings;
+        src: url(Tiresias_Infofont.ttf);
+    }
+
+    @font-face {
+        font-family: subText;
+        src: url(Lexend-ExtraLight.ttf);
+    }
 
 
-        .topnav {
-            background-color: #f2fdf2;
-            position: relative;
-            overflow: visible;
-            z-index: 1000;
-        }
+    /* headings */
 
-        .topnav a,
-        .dropdown .dropbtn {
-            float: left;
-            color: #355070;
-            text-align: center;
-            padding: 16px 70px;
-            text-decoration: none;
-            font-size: 40px;
-            font-family: myFirstFont;
-            background-color: #f2fdf2; /* background of home button */
-            outline: none;
-            border: none;
-            margin: 0;
-            cursor: pointer;
-        }
+    /*using for top title */
+    h1 {
+        font-family: nameTitleTop;
+        text-align: center;
+        font-size: 5vw;
+        margin: 0;
+    }
 
-        .topnav a:hover,
-        .dropdown:hover .dropbtn {
-            background-color: #dde3ec;
-            color: #77859c;
-        }
+    /*using for top links */
+    h2 {
+        font-family: pagesTopLinks;
+        font-size: 1.5vw;
+        text-align: center;
+        margin: 0;
+    }
 
-        .topnav .active,
-        .topnav .active .dropbtn {
-            background-color: #f7faf7; /* background of 'games' nav item */
-            color: #355070;
-        }
+    /* used for sub-headings */
+    h3 {
+        font-family: subHeadings;
+        font-size: 2vw;
+        color: tan;
+    }
 
-        .dropdown {
-            float: left;
-            position: relative;
-        }
+    h4 {
+        font-family: subText;
+        font-size: 1.5vw;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #f9f9f9;
-            min-width: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-        }
+    /* classes */
 
-        .dropdown-content a {
-            float: none;
-            color: #9a9880; /* color of games titles list */
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 35px;
-        }
+    /* formats title div */
+    .nameAtTop {
+        background-color: #565647;
+        margin: 0;
+        width: 100vw;
+        color: LightGray;
+    }
 
-        .dropdown-content a:hover {
-            background-color: #d3dbd3;  /* hover over games title list */
-            color: black;
-        }
+    /* formats links to all pages */
+    .linksToPages {
+        background-color: #909190;
+        display: grid;
+        grid-template-columns: 8% 13% 30% 15%;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .play-game {
+        text-align: center;
+        margin: 0;
+        margin-top: 10vh;
+    }
 
-        p {
-            font-size: 20px;
-        }
 
-        .button {
-            margin-top: 100px;
-        }
+    /* body */
 
-        .collapsible {
-            background-color: #565647; /* background of about and play before clicked */
-            color: white;
-            cursor: pointer;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 40px;
-            padding-left: 40px;
-            padding: 20px;
-            font-family: aboutFont;
-            margin-top: 50px; 
-            margin-left: auto;
-            margin-right: auto;
-            width: 95vw;
-            align-items: center;
-            display: block;
-        }
+    /* background */
+    body {
+        background-color: #e7f9e6;
+        margin: 0;
+        max-width: 100%;
+        color: white;
+    }
 
-        .active,
-        .collapsible:hover {
-            background-color: #d3dbd3; /* hover over about + play game */
-            color: black;
-        }
+    /* images */
+    .profphoto {
+        display: grid;
+        box-shadow: -2vw -2vw 0 tan;
+        border: 1vw;
+        border-color: #e7f9e6;
+        border-style: solid;
+        margin-left: 14vw;
+        margin-right: 15vw;
+        margin-top: 15vh;
+        grid-template-columns: 50% 50%;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
 
-        .content {
-            display: none;
-            overflow: hidden;
-            background-color: #d3dbd3; /* background of info */
-            margin: auto;
-            width: 95vw;
-            padding-bottom: 20px;
-        }
+    .image-button {
+        background-image: url("Lemon_Cart.PNG");
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+        max-width: 100%;
+        height: 50vh;
+    }
 
-        .content-inner {
-            width: 65vw; /* width of description text */
-            margin: 0 auto;
-        }
 
-        .content p,
-        .content em {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: black;
-            font-size: 20px;
-            background-color: #d3dbd3; /* background of text info */
-        }
-    </style>
-</head>
+    /* links */
+    a {
+        text-decoration: none;
+        color: LightGray;
+        /* no underline */
+    }
+
+    a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    a:active {
+        color: gray !important;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    a:hover {
+        color: tan;
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 1.2vw;
+        font-family: textAndPars;
+        margin-left: 1vw;
+        margin-right: 2vw;
+    }
+
+    img {
+        width: 50%;
+        max-width: 100%;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+    }
+
+    video {
+        width: 60%;
+        margin-left: .7vw;
+        max-width: 100%;
+        margin-top: 2vw;
+    }
+
+    /* how does one do alt text for videos? */
+
+    div {
+        max-width: 100%;
+    }
+</style>
 
 <body>
-    <div class="topnav">
-        <a href="index.html">⌂ Home</a>
-        <div class="dropdown active">
-            <button class="dropbtn">Finish Lime</button>
-            <div class="dropdown-content">
-                <a href="whoopsiedaisies.html">Whoopsie Daisies</a>
-                <a href="kitchenisland.html">Kitchen Island Re-Treat</a>
-                <a href="finishlime.html">Finish Lime</a>
+    <div class="nameAtTop">
+        <h1>Finish Lime</h1>
+        <div class="linksToPages">
+            <a href="index.html">
+                <h2>Home</h2>
+            </a>
+            <a href="pihkateewi.html">
+                <h2>Pihkateewi</h2>
+            </a>
+            <a href="fsfdk.html">
+                <h2>Funeral Services For Deposed Kings</h2>
+            </a>
+            <a href="finishlime.html">
+                <h2>Finish Lime</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="profphoto" style="background-color: #909190">
+        <div>
+            <div class="play-game">
+                <button type="button" onclick="playGame()" class="image-button"
+                    alt="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of her cart, her hair, and her helmet adorned with a lemon pattern."
+                    title="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of the cart, her hair, and her helmet adorned with a lemon pattern."></button>
+
+                <h3>Click Picture Above to Play</h3>
+                <br><br><br>
+                <video controls>
+                    <source src="luelle.mp4" type="video/mp4">
+                </video>
+                <h3>Timelapse of Lemon Racer</h3>
+                <br>
+                <video controls>
+                    <source src="lemoncart.mp4" type="video/mp4">
+                </video>
+                <h3>Timelapse of Lemon Cart</h3>
+            </div>
+        </div>
+        <div>
+            <p>Early on in my computer science minor I took CSE 251, which was Intro to Game Programming.
+                This got
+                me familiar with Unity engine as well as programming in C#. My skills have improved a lot since this
+                rendition of the game,
+                and I'm now working on another iteration in an independent study for my final computer science course
+                before graduating.
+                I'm going to transition
+                the game into Unreal engine and work with C++ and/or blueprints.</p>
+
+            <p>For my first rendition of Finish Lime, I developed artwork, animation systems, particles, scoring,
+                saving, exporting
+                a build to be played in browser, shooting, power-ups, and enemies. You play as a fruit-themed racer
+                trying to last as long as they can
+                on the track. By clicking the up
+                arrow, you can destroy any rocks that get in your way, or avoid them by using the arrow keys. Different
+                lemons fall toward you, allowing you to collect them and giving different
+                boosting effects. You have three lives and to replay once they run out simply left-click.
+            </p>
+
+            <p>The first iteration was great for learning how to implement systems and for seeing everything come
+                together in one of the
+                first games I made not on a team. I hope to improve upon everything as I continue working on it. A major
+                change is that I want a lot of the gameplay
+                to be in 3D, which means I will need to work on improving my skills in Maya and/or Blender. However,
+                some of the UI screens will likely be 2D in
+                order to showcase the character art. All that really comes across in the current version of the game is
+                that there are a lot of lemons. I want to be
+                clearer with the aesthetics going forward. I did a lot of character art for Luelle Amon, who you're
+                playing as, but you're never introduced to her name
+                or anything else about her. I'm also really looking forward into introducing more accessibility features
+                and
+                disability representation.
+            </p>
+
+            <p>To the left and below, you can view different drawing timelapses of and current artwork and models, like
+                what I
+                made in IMS 319,
+                which was Foundations in Digital 3-D Modeling and Animation. More will be coming soon as I continue to
+                further develop this project over the course of Spring 2026.
+            </p>
+
+            <div class="play-game">
+                <img src="lemoncarangle2.jpg" 
+                alt="3D model of lemon car. The car is composed of a yellow football-like shape with a leaf shape as the spoiler. The wheels are lemon slices."
+                title="3D model of lemon car. The car is composed of a yellow football-like shape with a leaf shape as the spoiler. The wheels are lemon slices.">
+                <br><br><br>
+                <video controls style="align-items: center">
+                    <source src="lemoncaranim.mp4" type="video/mp4">
+                </video>
+                <h3>3D Model of Lemon Cart</h3>
+                <br><br><br>
             </div>
         </div>
     </div>
-
-    <img style="width:100%; height:500px;" src="Finish Lime Thumbnail.png" title="Screen grab from Finish Lime game, showcasing the lemon-themed racer in the middle of three lanes with one out of three lives lost and a score of 100." alt="Screen grab from Finish Lime game, showcasing the lemon-themed racer in the middle of three lanes with one out of three lives lost and a score of 100.">
-
-
-    <button type="button" class="collapsible" id="collapsibleButton">About Finish Lime ▼</button>
-    <div class="content">
-        <div class="content-inner">
-            <p>
-                In my CSE 251 (Intro to Game Programming) class I gained a lot more experience with Unity. 
-                For my final project, I developed and created the art for
-                an iteration of a game I hope to further explore through a 3D 
-                version in Unreal for an independent study. But for Finish Lime here in its early stages, 
-                you play as a lemon-themed racer trying to avoid
-                and/or destory the pink swirly rocks, catch the power-ups as they fall, and last as long as
-                you can on the track. You can move between the three lanes through the right and left arrow 
-                keys and shoot at the rocks through the up arrow key. The longer you stay on the track and 
-                the more rocks you shoot, the higher your score. Click the play button below to see how
-                high of a score you can get!
-            </p>
-        </div>
-    </div>
-
-    <button type="button" class="collapsible" id="collapsibleButton" onclick="playGame()" style="margin-top: 25px">Play This Game ➤</button>
-
-    <div style="height: 100px;"></div>
-
 </body>
 
 </html>
-<Script>
-    var collapsibleButton = document.getElementById("collapsibleButton");
-    var content = document.querySelector(".content");
-
-    collapsibleButton.addEventListener("click", function () {
-        this.classList.toggle("active");
-
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            this.textContent = "About Finish Lime ▼";
-        } else {
-            content.style.display = "block";
-            this.textContent = "About Finish Lime ▲";
-        }
-    });
-
-    function playGame() {
+<script>  function playGame() {
         window.location.href = 'fl.html';
     }
 </script>
