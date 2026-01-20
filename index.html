@@ -1,263 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <link rel="shortcut icon" type="image/x-icon" href="logo.ico" />
-  <title>Talia Oliff Portfolio Home & About Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      background-color: #CACFD6;
-      width: 100%;
-      margin: 0;
-      font-family: myFirstFont;
-      /* background-image: url("scrapbookbackground.png"); */
-      background-blend-mode: soft-light;
-      background-size: contain;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+<!--- https://www.dafont.com/open-dyslexic.font -->
+
+<style>
+    /* fonts */
+    @font-face {
+        font-family: nameTitleTop;
+        src: url(OpenDyslexic-Bold.otf);
     }
 
+    @font-face {
+        font-family: pagesTopLinks;
+        src: url(OpenDyslexicAlta-Regular.otf);
+    }
+
+    @font-face {
+        font-family: textAndPars;
+        src: url(Tahoma.ttf);
+    }
+
+    @font-face {
+        font-family: subHeadings;
+        src: url(Tiresias_Infofont.ttf);
+    }
+
+    @font-face {
+        font-family: subText;
+        src: url(Lexend-ExtraLight.ttf);
+    }
+
+
+    /* headings */
+
+    /*using for top title */
     h1 {
-      font-size: 150px;
-      text-align: center;
-      padding: 150px 100px 0px 100px;
-      font-family: titleFont;
-      margin: 0;
-      color: #355070;
+        font-family: nameTitleTop;
+        text-align: center;
+        font-size: 5vw;
+        margin: 0;
     }
 
+    /*using for top links */
     h2 {
-      font-size: 80px;
-      text-align: left;
-      padding: 0;
-      font-family: 'Courier New', Courier, monospace;
-      margin: 0;
-      color: #355070;
+        font-family: pagesTopLinks;
+        font-size: 1.5vw;
+        text-align: center;
+        margin: 0;
     }
 
-    td {
-      padding-top: 75px;
-      width: 50%;
+    /* used for sub-headings */
+    h3 {
+        font-family: subHeadings;
+        font-size: 2vw;
+        color: tan;
     }
 
-    .contact {
-      background-color: #355070;
-      width: 100%;
-      color: white;
-      font-size: 30px;
-      text-align: left;
-      border-top: #50627f solid 60px;
-      padding: 0;
-      margin-top: auto;
+    h4 {
+        font-family: subText;
+        font-size: 1.5vw;
     }
 
-    .contact td {
-      width: 50%;
-      text-align: top;
-      padding-top: 30px;
-      color: white;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    /* classes */
+
+    /* formats title div */
+    .nameAtTop {
+        background-color: #355070;
+        margin: 0;
+        width: 100vw;
+        color: LightGray;
     }
 
-    .contact h4 {
-      font-weight: lighter;
-      font-size: 25px;
+    /* formats links to all pages */
+    .linksToPages {
+        background-color: #50627f;
+        display: grid;
+        grid-template-columns: 8% 13% 30% 15%;
     }
 
-    table {
-      margin: auto;
-      width: 90%;
-     /* padding-top: 20px; */
-      margin-bottom: 50px;
-      color: #355070;
+    /* images */
+    .profphoto {
+        display: grid;
+        box-shadow: -2vw -2vw 0 tan;
+        border: 1vw;
+        border-color: #CACFD6;
+        border-style: solid;
+        margin-left: 14vw;
+        margin-right: 15vw;
+        margin-top: 15vh;
+        grid-template-columns: 50% 50%;
+        overflow-x: hidden;
+        max-width: 100%;
     }
 
-    @font-face {
-      font-family: myFirstFont;
-      src: url(CANDY___.otf);
+    /* contact info */
+    .contact-info {
+        text-align: center;
+        margin: 0;
+        margin-top: 10vh;
     }
 
-    @font-face {
-      font-family: titleFont;
-      src: url(KLINOM__.TTF);
+
+    /* body */
+
+    /* background */
+    body {
+        background-color: #CACFD6;
+        margin: 0;
+        max-width: 100%;
+        color: white;
     }
 
-    .topnav {
-      background-color: #c3cad3;
-      position: relative;
-      overflow: visible;
-      z-index: 1000;
+
+    /* links */
+    a {
+        text-decoration: none;
+        color: LightGray;
+        /* no underline */
     }
 
-    .topnav a,
-    .dropdown .dropbtn {
-      float: left;
-      color: #355070;
-      text-align: center;
-      padding: 16px 70px 16px 70px;
-      text-decoration: none;
-      font-size: 40px;
-      font: myFirstFont;
-      background-color: inherit;
-      font-family: inherit;
-      outline: none;
-      border: none;
-      margin: 0;
+    a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
     }
 
-    .topnav a:hover,
-    .dropdown:hover .drobtn {
-      color: inherit;
-      background-color: #c3cad3;
+    a:active {
+        color: gray !important;
+        text-decoration: none;
+        /* no underline */
     }
 
-    .topnav a.active {
-      background-color: #d0d4da;
-      color: #50627f;
-    }
-
-    .dropdown {
-      float: left;
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #c3cad3;
-      min-width: 100%;
-      box-shadow: 0px 8px 16px 0px;
-      z-index: 1001;
-    }
-
-    .dropdown-content a {
-      float: none;
-      color: #355070;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-      font-size: 35px;
-    }
-
-    .dropdown-content a:hover {
-      background-color: #ddd;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .profile div {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }
-
-    img {
-      width: 100%;
-    }
-
-    .imgL {
-      position: relative;
-      display: block;
-      width: 400px;
-      box-shadow: -30px -30px 0 #355070;
-      border: 5px;
-      border-color: #CACFD6;
-      border-style: solid;
-      margin-left: 150px;
-      float: left;
-      clear: both;
-    }
-
-    .imgR {
-      position: relative;
-      display: block;
-      width: 400px;
-      box-shadow: 30px -30px 0 #355070;
-      border-width: 5px;
-      border-color: #CACFD6;
-      margin-right: 150px;
-      border-style: solid;
-      float: right;
-      clear: both;
-    }
-
-    .pL {
-      margin-left: 100px;
-      margin-right: 200px;
-      text-align: left;
-    }
-
-    .pR {
-      margin-right: 100px;
-      text-align: left;
+    a:hover {
+        color: tan;
+        text-decoration: underline;
     }
 
     p {
-      font-family: 'Garamond', san-serif;
-      font-size: 30px;
-      padding: 0;
+        font-size: 1.2vw;
+        font-family: textAndPars;
+        margin-left: 1vw;
+        margin-right: 2vw;
     }
-  </style>
-</head>
+
+    img {
+        width: 50%;
+        margin-left: 8vw;
+        max-width: 100%;
+        margin-top: 5vw;
+    }
+
+    div {
+        max-width: 100%;
+    }
+</style>
 
 <body>
-
-  <div class="topnav">
-    <a class="active" href="index.html">⌂ Home</a>
-    <div class="dropdown">
-      <button class="dropbtn">Games</button>
-      <div class="dropdown-content">
-        <a href="finishlime.html">Finish Lime</a>
-      </div>
+    <div class="nameAtTop">
+        <h1>Talia Oliff</h1>
+        <div class="linksToPages">
+            <a href="index.html">
+                <h2>Home</h2>
+            </a>
+            <a href="pihkateewi.html">
+                <h2>Pihkateewi</h2>
+            </a>
+            <a href="fsfdk.html">
+                <h2>Funeral Services For Deposed Kings</h2>
+            </a>
+            <a href="finishlime.html">
+                <h2>Finish Lime</h2>
+            </a>
+        </div>
     </div>
-  </div>
 
-  <table role="presentation">
+    <div class="profphoto" style="background-color: #50627f">
+        <div>
+            <img src="profphoto.jpg"
+                title="Professional headshot photo of Talia with a white background. Curly brown hair over shoulders, brown eyes, wearing a white shirt and black blazer."
+                alt="Professional headshot photo of Talia with a white background. Curly brown hair over shoulders, brown eyes, wearing a white shirt and black blazer.">
+            <div class="contact-info">
+                <br>
+                <h3>School Email</h3>
+                <h4>olifftj@miamioh.edu</h4>
+                <br><br>
+                <h3>Work Email</h3>
+                <h4>talia.oliff@gmail.com</h4>
+                <br><br>
+            </div>
+        </div>
 
-    <tr>
-      <td>
-        <img class="imgL" src="butterfly colors.jpg" title="Talia standing in front of a butterfly conservatory, wearing an off-white dress and a tan headband sitting atop medium-length dark-brown curls." alt="Talia standing in front of a butterfly conservatory, wearing an off-white dress and a tan headband sitting atop medium-length dark-brown curls.">
-      </td>
-
-      <td>
-        <h2>Talia Oliff</h2>
-        <p class="pR">
-          I'm currently a senior at Miami University studying game design and computer science. 
-          I'm interested in creating games and/or applications 
-          that can help people through either enjoyment, comforting aesthetics, 
-          or accessibility and disability representation.
-          Throughout my classes I'm developing skills in
-          game development, working in a team, and project management. 
-          Outside of classes, I'm an avid attender of Hillel, a Jewish organization on campus, 
-          and I've delved into clubs like Aerial Silks and Student Disability Advocacy & Allies.  
-        </p>
-      </td>
-    </tr>
-
-  </table>
-
-  <div class="contact">
-    <table role="presentation">
-      <tr>
-        <td>
-          <h3>School Email</h3>
-          <h4>olifftj@miamioh.edu</h4>
-        </td>
-        <td>
-          <h3>Work Email</h3>
-          <h4>talia.oliff@gmail.com</h4>
-        </td>
-      </tr>
-    </table>
-  </div>
-
+        <div>
+            <p>Though I’m in school for game programming, I’ve spent nearly my whole life writing stories. As a kid, I
+                was always making things with paper and by first
+                grade had determined I wanted to be an artist for our 'what do I want to be when I grow
+                up' book.</p>
+            <p>It wasn’t until middle school that I had the epiphany that game design would be a good fit. I enjoyed
+                computer science class because a new avenue of making things opened up. I was never good with
+                presentations but I had to make a game and present it to one of my classes and it was the first
+                presentation I actually felt confident doing. That coalesced into me trying out a
+                technology elective in junior high, and then computer science classes the entirety of my high school in
+                Cincinnati, Ohio, where I attended k-12. I now have a minor in computer science and am completing my
+                game design major this semester at Miami University.</p>
+            <p>My time there allows me to grow both programming wise as well as improving project management skills, teamwork, communication,
+                organization, and public speaking. Additionally, I currently work as a student assistant in our school’s
+                disability services center. They’ve been an amazing resource for me and I’m incredibly appreciative of
+                the position as it teaches me more about accessibility, work environments, and support.</p>
+            <p>All of these different experiences, as well as my first job as a teaching assistant in a pre-school
+                classroom at my synagogue, have taught me that game design, play, learning, and
+                accessibility can all be
+                intertwined. Now I want to make games that can achieve that through
+                aesthetics, enjoyment, disability representation, accessibility, and education.</p>
+        </div>
+    </div>
 </body>
 
 </html>
