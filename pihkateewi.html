@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--- https://www.dafont.com/open-dyslexic.font -->
+
+<style>
+    /* fonts */
+    @font-face {
+        font-family: nameTitleTop;
+        src: url(OpenDyslexic-Bold.otf);
+    }
+
+    @font-face {
+        font-family: pagesTopLinks;
+        src: url(OpenDyslexicAlta-Regular.otf);
+    }
+
+    @font-face {
+        font-family: textAndPars;
+        src: url(Tahoma.ttf);
+    }
+
+    @font-face {
+        font-family: subHeadings;
+        src: url(Tiresias_Infofont.ttf);
+    }
+
+    @font-face {
+        font-family: subText;
+        src: url(Lexend-ExtraLight.ttf);
+    }
+
+
+    /* headings */
+
+    /*using for top title */
+    h1 {
+        font-family: nameTitleTop;
+        text-align: center;
+        font-size: 5vw;
+        margin: 0;
+    }
+
+    /*using for top links */
+    h2 {
+        font-family: pagesTopLinks;
+        font-size: 1.5vw;
+        text-align: center;
+        margin: 0;
+    }
+
+    /* used for sub-headings */
+    h3 {
+        font-family: subHeadings;
+        font-size: 2vw;
+        color: tan;
+    }
+
+    h4 {
+        font-family: subText;
+        font-size: 1.5vw;
+    }
+
+    /* classes */
+
+    /* formats title div */
+    .nameAtTop {
+        background-color: #6c3f30;
+        margin: 0;
+        width: 100vw;
+        color: LightGray;
+    }
+
+    /* formats links to all pages */
+    .linksToPages {
+        background-color: #75503d;
+        display: grid;
+        grid-template-columns: 8% 13% 30% 15%;
+    }
+
+    .play-game {
+        text-align: center;
+        margin: 0;
+        margin-top: 5vh;
+    }
+
+
+    /* body */
+
+    /* background */
+    body {
+        background-color: #D09288;
+        margin: 0;
+        max-width: 100%;
+        color: white;
+    }
+
+    /* images */
+    .profphoto {
+        display: grid;
+        box-shadow: -2vw -2vw 0 tan;
+        border: 1vw;
+        border-color: #D09288;
+        border-style: solid;
+        margin-left: 14vw;
+        margin-right: 15vw;
+        margin-top: 15vh;
+        grid-template-columns: 50% 50%;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .image-button {
+        background-image: url("Lemon_Cart.PNG");
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+        max-width: 100%;
+        height: 50vh;
+    }
+
+
+    /* links */
+    a {
+        text-decoration: none;
+        color: LightGray;
+        /* no underline */
+    }
+
+    a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    a:active {
+        color: gray !important;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    a:hover {
+        color: tan;
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 1.2vw;
+        font-family: textAndPars;
+        margin-left: 1vw;
+        margin-right: 2vw;
+    }
+
+    img {
+        width: 50%;
+        max-width: 100%;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+    }
+
+    video {
+        width: 90%;
+        margin-left: .7vw;
+        max-width: 100%;
+    }
+
+    /* how does one do alt text for videos? */
+
+    div {
+        max-width: 100%;
+    }
+</style>
+
+<body>
+    <div class="nameAtTop">
+        <h1>Pihkateewi</h1>
+        <div class="linksToPages">
+            <a href="index.html">
+                <h2>Home</h2>
+            </a>
+            <a href="pihkateewi.html">
+                <h2>Pihkateewi</h2>
+            </a>
+            <a href="fsfdk.html">
+                <h2>Funeral Services For Deposed Kings</h2>
+            </a>
+            <a href="finishlime.html">
+                <h2>Finish Lime</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="profphoto" style="background-color: #75503d;">
+        <div>
+            <div class="play-game">
+                <!-- <button type="button" onclick="playGame()" class="image-button"
+                    alt="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of her cart, her hair, and her helmet adorned with a lemon pattern."
+                    title="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of the cart, her hair, and her helmet adorned with a lemon pattern."></button>
+-->
+                <video controls>
+                    <source src="Pihkateewi Trailer.mp4" type="video/mp4">
+                </video>
+                <h3>Play Game Trailer Above</h3>
+                <br><br><br>
+            </div>
+        </div>
+        <div>
+            <!-- figure out if can link directly to dictionary; ask center -->
+            <p>Pihkateewi <a href="https://miamioh.edu/centers-institutes/myaamia-center/"
+                    style="text-decoration: underline">means 'it blooms'</a> and the game was created
+                in my Indie Game Development class for the Myaamia Center at Miami University.
+            </p>
+
+            <p>This was an amazing learning experience and unique opportunity to grow both as a programmer and working in a studio team, as well as in
+                my understanding of the Myaamia people. My role in this project included organization,
+                project management, communicating, researching, and programming. This consisted of working on the
+                collection, inventory
+                and journal system, linking all the pieces of our game together, and the user interface. This was done
+                in Unity software and C# scripts.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>  function playGame() {
+        window.location.href = 'fl.html';
+    }
+</script>
