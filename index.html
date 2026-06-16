@@ -8,6 +8,15 @@
     /* responsiveness */
     @media screen and (max-width: 600px) {
         .linksToPages a:not(:first-child) {display: none}
+        .menuicon {
+            display: block;
+            float: left;
+        }
+    }
+
+    .menuicon {
+        src: url(menuicon.ico);
+        display: none;
     }
     
     /* fonts */
@@ -165,6 +174,7 @@
 <body>
     <div class="nameAtTop">
         <div class="linksToPages" id="nav">
+            <a class="icon" onclick="nav"></a>
             <a href="index.html">
                 <h2>Home</h2>
             </a>
