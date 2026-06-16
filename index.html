@@ -5,6 +5,11 @@
 <!--- https://www.dafont.com/open-dyslexic.font -->
 
 <style>
+    /* responsiveness */
+    @media screen and (max-width: 600px) {
+        .linksToPages a:not(:first-child) {display: none}
+    }
+    
     /* fonts */
     @font-face {
         font-family: nameTitleTop;
@@ -159,7 +164,7 @@
 
 <body>
     <div class="nameAtTop">
-        <div class="linksToPages">
+        <div class="linksToPages" id="nav">
             <a href="index.html">
                 <h2>Home</h2>
             </a>
@@ -203,3 +208,10 @@
 </body>
 
 </html>
+
+<script>
+
+function nav() {
+    var topnav = document.getElementById("nav");
+    
+</script>
