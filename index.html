@@ -7,14 +7,14 @@
 <style>
     /* responsiveness */
     @media screen and (max-width: 600px) {
-        .linksToPages a:not(:first-child) {display: none;}
+        .linksToPages a:not(.home):not(.menuicon) {display: none;}
         .linksToPages a.menuicon {
             display: block;
             float: left;
         }
     }
 
-    .linksToPages .menuicon {
+    .menuicon {
         display: none;
     }
 
@@ -132,25 +132,25 @@
 
 
     /* links */
-    .linksToPages a {
+    .a {
         text-decoration: none;
         color: LightGray;
         /* no underline */
     }
 
-    .linksToPages a:visited {
+    .a:visited {
         color: white;
         text-decoration: none;
         /* no underline */
     }
 
-    .linksToPages a:active {
+    .a:active {
         color: gray !important;
         text-decoration: none;
         /* no underline */
     }
 
-    .linksToPages a:hover {
+    .a:hover {
         color: tan;
         text-decoration: underline;
     }
@@ -180,7 +180,7 @@
             <a class="menuicon" onclick="nav()">
                 <i class="icon"></i>
             </a>
-            <a href="index.html">
+            <a href="index.html" class="home">
                 <h2>Home</h2>
             </a>
             <a href="pihkateewi.html">
