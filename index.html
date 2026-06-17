@@ -9,13 +9,13 @@
     @media screen and (max-width: 600px) {
         .linksToPages a:not(:first-child) {display: none}
         .menuicon {
+            src: url(menuicon.ico);
             display: block;
             float: left;
         }
     }
 
     .menuicon {
-        src: url(menuicon.ico);
         display: none;
     }
     
@@ -174,7 +174,9 @@
 <body>
     <div class="nameAtTop">
         <div class="linksToPages" id="nav">
-            <a class="icon" onclick="nav"></a>
+            <a class="icon" onclick="nav">
+                <i class="menuicon"></i>
+            </a>
             <a href="index.html">
                 <h2>Home</h2>
             </a>
