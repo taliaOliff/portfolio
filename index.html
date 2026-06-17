@@ -6,7 +6,38 @@
 
 <style>
     /* responsiveness */
-  
+
+    /* formats top links */
+    .linksToPages {
+        background-color: #50627f;
+        overflow: hidden;
+    }
+
+   .linksToPages a {
+        text-decoration: none;  
+        color: LightGray; 
+        display: block;
+        float: left;
+        text-align: center;
+    }
+
+    .linksToPages a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    .linksToPages a:active {
+        color: gray !important;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    .linksToPages a:hover {
+        color: tan;
+        text-decoration: underline;
+    }
+
 
     
     /* fonts */
@@ -73,12 +104,6 @@
         margin: 0;
         width: 100vw;
         color: LightGray;
-    }
-
-    /* formats links to all pages */
-    .linksToPages {
-        background-color: #50627f;
-        display: block;
     }
 
     /* contact info */
