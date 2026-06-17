@@ -8,10 +8,11 @@
     /* responsiveness */
   
 
-  /*  .menuicon {
-        display: none;
+    img .menuicon {
+        display: grid;
+        
     }
-*/
+
     
     /* fonts */
     @font-face {
@@ -153,7 +154,7 @@
         margin-right: 2vw;
     }
 
-    img {
+    img .profphoto {
         width: 50%;
         margin-left: 8vw;
         max-width: 100%;
@@ -168,7 +169,7 @@
 <body>
     <div class="nameAtTop">
         <div class="linksToPages">
-            <img src="menuicon.ico"></img>
+            <img src="menuicon.ico" class="menuicon"></img>
             <a href="index.html">
                 <h2>Home</h2>
             </a>
