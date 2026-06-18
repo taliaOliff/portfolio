@@ -6,6 +6,16 @@
 
 <style>
     /* responsiveness */
+    @media screen and (max-width: 600px) {
+        .linksToPages img {
+            width:  2.5vw;
+            height: 5vh;
+        }
+
+        .linksToPages a:not(.currentTab) {
+            display: none;
+        }
+    }
 
     /* formats top links */
     .linksToPages {
@@ -40,8 +50,7 @@
     }
 
     .linksToPages img {
-        width:  2.5vw;
-        height: 5vh;
+        display: none;
     }
     
     /* fonts */
@@ -170,7 +179,7 @@
             <a>
                 <img src="menuicon.ico" class="menuicon"></img>
             </a>
-            <a href="index.html">
+            <a href="index.html" class="currentTab">
                 <h2>Home</h2>
             </a>
             <a href="pihkateewi.html">
