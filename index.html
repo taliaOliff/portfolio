@@ -7,14 +7,14 @@
 <style>
     /* responsiveness */
     @media screen and (max-width: 600px) {
-        .linksToPages img {
+        .linksToPages a:not(.currentTab) {
+            display: none;
+        }
+        
+        .linksToPages a.img {
             width:  2.5vw;
             height: 5vh;
             display: block;
-        }
-
-        .linksToPages a:not(.currentTab):not(.linksToPages img) {
-            display: none;
         }
     }
 
