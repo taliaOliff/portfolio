@@ -6,6 +6,8 @@
 
 <style>
     /* responsiveness */
+
+    /* remove other tabs and show menu icon */
     @media screen and (max-width: 600px) {
         .linksToPages a:not(.currentTab):not(.menuicon) {
             display: none;
@@ -22,6 +24,32 @@
 
         .linksToPages h2 {
             font-size: 3vw;
+        }
+    }
+
+    /* make menu icon functional/reformat other tabs */
+     @media screen and (max-width: 600px) {
+        .linksToPages.responsive {
+            position: relative;
+        }
+        
+        .linksToPages a.menuicon {
+            text-decoration: none;  
+            color: LightGray; 
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 2vh 2vw;
+        }
+
+        .linksToPages h2 {
+            font-size: 3vw;
+        }
+
+        .linksToPages.responsive.a {
+            float: none;
+            display: block;
+            text-align: left;
         }
     }
 
@@ -182,10 +210,11 @@
         max-width: 100%;
     }
 
-    .profphoto {
+    .profphoto img {
         width: 20%;
         height: 20%;
     }
+
 </style>
 
     <head>
@@ -193,8 +222,8 @@
     </head>
     
 <body>
-        <div class="linksToPages">
-            <a class="menuicon">
+        <div class="linksToPages" id="nav">
+            <a class="menuicon" onclick="makeResponsive">
                <h2>☰</h2>
             </a>
             <a href="index.html" class="currentTab">
@@ -243,7 +272,12 @@
 
 <script>
 
-//function nav() {
-   // var topnav = document.getElementById("nav");
+function makeResponsive() {
+   var topnav = document.getElementById("nav");
+   if (topnav.className ===  "linksToPages") {
+        topnav.className += " responsive";
+   } else {
+        topnav.className = "linksToPages";
+   }
     
 </script>
