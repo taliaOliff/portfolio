@@ -69,10 +69,11 @@
             display: block;
         }
 
-          .contact-info, .left, right {
+          .contact-info, .left, .right {
             width: 100%;
             height: 100%;
             display: block;
+            text-align: center;
         }
     }
 
@@ -178,14 +179,23 @@
         color: LightGray;
     }
 
-    /* contact info */
+    /* contact info/middle */
     .contact-info {
         text-align: center;
         margin: 0;
         margin-top: 10vh;
         width: 33%;
         height: 100%;
+        display: inline;
     }
+
+    /* left section, right section */
+     .left, .right {
+        width: 33%;
+        height: 100%;
+        display: inline;
+    }
+
 
 
     /* body */
@@ -235,15 +245,9 @@
         max-width: 100%;
     }
 
-    .profphoto img {
-        width: 20%;
-        height: 20%;
-    }
-
-    .left, .right {
-        width: 33%;
-        height: 100%;
-        display: inline;
+    .prof img {
+        width: 200px;
+        height: 200px;
     }
 
 </style>
@@ -274,7 +278,8 @@
         <h1>Talia Oliff</h1>
     </div>
 
-    <div class="profphoto">
+    <div class="prof">
+        
         <div class="left">
             <img src="profphoto2.JPG"
                 alt="Professional headshot photo of Talia with a white background. Curly brown hair over shoulders, brown eyes, wearing a white shirt and black blazer.">
