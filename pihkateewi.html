@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,6 +6,145 @@
 <!--- https://www.dafont.com/open-dyslexic.font -->
 
 <style>
+    /* responsiveness */
+
+    /* remove other tabs and show menu icon */
+    @media screen and (max-width: 600px) {
+        .linksToPages a:not(.currentTab):not(.menuicon) {
+            display: none;
+        }
+        
+        .linksToPages a.menuicon {
+            text-decoration: none;  
+            color: LightGray; 
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 2vh 2vw;
+            cursor: pointer;
+        }
+
+        .linksToPages h2 {
+            font-size: 4vw;
+        }
+
+        /* using for sub-headings */
+       .prof h3 {
+            font-family: subHeadings;
+            font-size: 6vw;
+            color: #50627f;
+        }
+
+        /* using for contact info */
+        .prof h4 {
+            font-family: subText;
+            font-size: 4.5vw;
+            color: #355070;
+        }
+
+        .prof p {
+            font-size: 3.6vw;
+            font-family: textAndPars;
+            margin-left: 1vw;
+            margin-right: 2vw;
+            color: #355070;
+        }
+
+        .prof img {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+        }
+
+        .prof div.left, div.contact-info, div.right {
+            display: block;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            margin-top: 10vh;
+            margin-bottom: 5vh;
+            width: 70%;
+            height: 100%;
+            padding-left: 80px;
+        } 
+
+         div {
+             width: 100%;
+         }
+    }
+
+    /* make menu icon functional/reformat other tabs & the page */
+     @media screen and (max-width: 600px) {
+        .linksToPages.responsive {
+            position: relative;
+        }
+        
+        .linksToPages.responsive .menuicon {
+            text-decoration: none;  
+            color: LightGray; 
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 2vh 2vw;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .linksToPages.responsive h2 {
+            font-size: 4vw;
+        }
+
+        .linksToPages.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            text-decoration: none;  
+            color: LightGray; 
+            padding: 2vh 2vw;
+        }
+
+         .linksToPages.responsive a:not(.currentTab):not(.menuicon) {
+            display: block;
+        }
+     }
+
+    /* formats top links */
+    .linksToPages {
+        background-color: #50627f;
+        overflow: hidden;
+    }
+
+   .linksToPages a {
+        text-decoration: none;  
+        color: LightGray; 
+        display: block;
+        float: left;
+        text-align: center;
+        padding: 2vh 2vw;
+    }
+
+    .linksToPages a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    .linksToPages a:active {
+        color: gray !important;
+        text-decoration: none;
+    }
+
+    .linksToPages a:hover {
+        color: tan;
+        text-decoration: underline;
+    }
+
+    .linksToPages .menuicon {
+        display: none;
+    }
+    
     /* fonts */
     @font-face {
         font-family: nameTitleTop;
@@ -50,79 +190,40 @@
         margin: 0;
     }
 
-    /* used for sub-headings */
+    /* using for sub-headings */
     h3 {
         font-family: subHeadings;
         font-size: 2vw;
-        color: tan;
+        color: #50627f;
     }
 
+    /* using for contact info */
     h4 {
         font-family: subText;
         font-size: 1.5vw;
+        color: #355070;
     }
-
-    /* classes */
 
     /* formats title div */
     .nameAtTop {
-        background-color: #6c3f30;
+        background-color: #355070;
         margin: 0;
         width: 100vw;
         color: LightGray;
     }
 
-    /* formats links to all pages */
-    .linksToPages {
-        background-color: #75503d;
-        display: grid;
-        grid-template-columns: 8% 13% 30% 15%;
-    }
-
-    .play-game {
-        text-align: center;
-        margin: 0;
-        margin-top: 5vh;
-    }
-
-
     /* body */
 
     /* background */
     body {
-        background-color: #D09288;
+        background-color: #CACFD6;
         margin: 0;
         max-width: 100%;
         color: white;
     }
 
-    /* images */
-    .profphoto {
-        display: grid;
-        box-shadow: -2vw -2vw 0 tan;
-        border: 1vw;
-        border-color: #D09288;
-        border-style: solid;
-        margin-left: 14vw;
-        margin-right: 15vw;
-        margin-top: 15vh;
-        grid-template-columns: 50% 50%;
-        overflow-x: hidden;
-        max-width: 100%;
-    }
 
-    .image-button {
-        background-image: url("Lemon_Cart.PNG");
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-        width: 50%;
-        max-width: 100%;
-        height: 50vh;
-    }
-
-
-    /* links */
+    /* top links */
     a {
         text-decoration: none;
         color: LightGray;
@@ -147,39 +248,75 @@
     }
 
     p {
-        font-size: 1.2vw;
+        font-size: 1.4vw;
         font-family: textAndPars;
         margin-left: 1vw;
         margin-right: 2vw;
+        color: #355070;
     }
-
-    img {
-        width: 50%;
-        max-width: 100%;
-        margin-top: 3vw;
-        margin-bottom: 3vw;
-    }
-
-    video {
-        width: 90%;
-        margin-left: .7vw;
-        max-width: 100%;
-    }
-
-    /* how does one do alt text for videos? */
 
     div {
         max-width: 100%;
     }
+
+    .prof img {
+        width: 65%;
+        height: 65%;
+        align-items: center;
+    }
+
+    .left, .contact-info, .right {
+        float: left;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        width: 30%;
+        height: 100%;
+    }
+
+    .left {
+        padding-left: 100px;
+    }
+
+
+    /* other links */
+    .prof a {
+        color: darkGray;
+        text-decoration: underline;
+    }
+
+    .prof a:visited {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .prof a:active {
+        color: darkGray !important;
+        text-decoration: underline;
+    }
+
+    .prof a:hover {
+        color: brown;
+        text-decoration: underline;
+    }
+
 </style>
 
+    <head>
+        <link rel="icon" href="profphoto.ico">
+    </head>
+    
 <body>
-    <div class="nameAtTop">
-        <div class="linksToPages">
+        <div class="linksToPages" id="nav">
+            <a class="menuicon" onclick="makeResponsive()">
+               <h2>☰</h2>
+            </a>
             <a href="index.html">
                 <h2>Home</h2>
             </a>
-            <a href="pihkateewi.html">
+            <a href="pihkateewi.html" class="currentTab">
                 <h2>Pihkateewi</h2>
             </a>
             <a href="fsfdk.html">
@@ -189,27 +326,15 @@
                 <h2>Finish Lime</h2>
             </a>
         </div>
-         <h1>Pihkateewi</h1>
+       <div class="nameAtTop">
+        <h1>Pihkateewi</h1>
     </div>
 
-    <div class="profphoto" style="background-color: #75503d;">
-        <div>
-            <div class="play-game">
-                <!-- <button type="button" onclick="playGame()" class="image-button"
-                    alt="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of her cart, her hair, and her helmet adorned with a lemon pattern."
-                    title="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of the cart, her hair, and her helmet adorned with a lemon pattern."></button>
--->
-                <video controls>
-                    <source src="Pihkateewi Trailer.mp4" type="video/mp4">
-                </video>
-                <h3>Play Game Trailer Above</h3>
-                <a href="https://youtube.com/shorts/tdPbzT8U448?si=zQMRZhhzC9WHmE1D">Or Click To Play</a>
-                <br><br><br>
-            </div>
-        </div>
-        <div>
-            <!-- figure out if can link directly to dictionary; ask center -->
-            <p>Pihkateewi <a href="https://miamioh.edu/centers-institutes/myaamia-center/"
+    
+    <div class="prof">
+        
+        <div class="left" style="text-align: left;">
+           <p>Pihkateewi <a href="https://miamioh.edu/centers-institutes/myaamia-center/"
                     style="text-decoration: underline">means 'it blooms'</a> and the game was created
                 in my Indie Game Development class for the Myaamia Center at Miami University.
             </p>
@@ -221,14 +346,36 @@
                 and journal system, linking all the pieces of our game together, and the user interface. This was done
                 in Unity software and C# scripts.
             </p>
+
         </div>
+        
+        <div class="contact-info">
+                <br>
+                <h3>See Game</h3>
+                <h4><a href="https://www.youtube.com/watch?v=tdPbzT8U448">Click To View Game Trailer</a></h4>
+                <br><br>
+        </div>
+
+         <div class="right">
+            <img src="profphoto2.JPG"
+            alt="Professional headshot photo of Talia with a white background. Curly brown hair over shoulders, brown eyes, wearing a white shirt and black blazer.">
+        </div>
+        
     </div>
+
 </body>
 
 </html>
-<script>  function playGame() {
-        window.location.href = 'fl.html';
-    }
 
+<script>
+
+function makeResponsive() {
+   var topnav = document.getElementById("nav");
+   if (topnav.className ===  "linksToPages") {
+        topnav.className += " responsive";
+   } else {
+        topnav.className = "linksToPages";
+   }
+}
+    
 </script>
-
