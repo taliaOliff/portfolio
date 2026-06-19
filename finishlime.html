@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,6 +7,149 @@
 <!--- https://www.dafont.com/open-dyslexic.font -->
 
 <style>
+    /* responsiveness */
+
+    /* remove other tabs and show menu icon */
+    @media screen and (max-width: 600px) {
+        .linksToPages a:not(.currentTab):not(.menuicon) {
+            display: none;
+        }
+        
+        .linksToPages a.menuicon {
+            text-decoration: none;  
+            color: LightGray; 
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 2vh 2vw;
+            cursor: pointer;
+        }
+
+        .linksToPages h2 {
+            font-size: 4vw;
+        }
+
+        /* using for sub-headings */
+       .prof h3 {
+            font-family: subHeadings;
+            font-size: 6vw;
+            color: #50627f;
+        }
+
+        /* using for contact info */
+        .prof h4 {
+            font-family: subText;
+            font-size: 4.5vw;
+            color: #355070;
+        }
+
+        .prof p {
+            font-size: 3.6vw;
+            font-family: textAndPars;
+            margin-left: 1vw;
+            margin-right: 2vw;
+            color: #355070;
+        }
+
+        .prof img {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+        }
+
+        .prof div.left, div.contact-info, div.right {
+            display: block;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            margin-top: 10vh;
+            margin-bottom: 5vh;
+            width: 70%;
+            height: 100%;
+            padding-left: 80px;
+        } 
+
+         div {
+             width: 100%;
+         }
+
+        .nameAtTop {
+            display: none;
+        }
+    }
+
+    /* make menu icon functional/reformat other tabs & the page */
+     @media screen and (max-width: 600px) {
+        .linksToPages.responsive {
+            position: relative;
+        }
+        
+        .linksToPages.responsive .menuicon {
+            text-decoration: none;  
+            color: LightGray; 
+            display: block;
+            float: left;
+            text-align: center;
+            padding: 2vh 2vw;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .linksToPages.responsive h2 {
+            font-size: 4vw;
+        }
+
+        .linksToPages.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            text-decoration: none;  
+            color: LightGray; 
+            padding: 2vh 2vw;
+        }
+
+         .linksToPages.responsive a:not(.currentTab):not(.menuicon) {
+            display: block;
+        }
+     }
+
+    /* formats top links */
+    .linksToPages {
+        background-color: #50627f;
+        overflow: hidden;
+    }
+
+   .linksToPages a {
+        text-decoration: none;  
+        color: LightGray; 
+        display: block;
+        float: left;
+        text-align: center;
+        padding: 2vh 2vw;
+    }
+
+    .linksToPages a:visited {
+        color: white;
+        text-decoration: none;
+        /* no underline */
+    }
+
+    .linksToPages a:active {
+        color: gray !important;
+        text-decoration: none;
+    }
+
+    .linksToPages a:hover {
+        color: tan;
+        text-decoration: underline;
+    }
+
+    .linksToPages .menuicon {
+        display: none;
+    }
+    
     /* fonts */
     @font-face {
         font-family: nameTitleTop;
@@ -50,79 +195,40 @@
         margin: 0;
     }
 
-    /* used for sub-headings */
+    /* using for sub-headings */
     h3 {
         font-family: subHeadings;
         font-size: 2vw;
-        color: tan;
+        color: #50627f;
     }
 
+    /* using for contact info */
     h4 {
         font-family: subText;
         font-size: 1.5vw;
+        color: #355070;
     }
-
-    /* classes */
 
     /* formats title div */
     .nameAtTop {
-        background-color: #565647;
+        background-color: #355070;
         margin: 0;
         width: 100vw;
         color: LightGray;
     }
 
-    /* formats links to all pages */
-    .linksToPages {
-        background-color: #909190;
-        display: grid;
-        grid-template-columns: 8% 13% 30% 15%;
-    }
-
-    .play-game {
-        text-align: center;
-        margin: 0;
-        margin-top: 10vh;
-    }
-
-
     /* body */
 
     /* background */
     body {
-        background-color: #e7f9e6;
+        background-color: #CACFD6;
         margin: 0;
         max-width: 100%;
         color: white;
     }
 
-    /* images */
-    .profphoto {
-        display: grid;
-        box-shadow: -2vw -2vw 0 tan;
-        border: 1vw;
-        border-color: #e7f9e6;
-        border-style: solid;
-        margin-left: 14vw;
-        margin-right: 15vw;
-        margin-top: 15vh;
-        grid-template-columns: 50% 50%;
-        overflow-x: hidden;
-        max-width: 100%;
-    }
 
-    .image-button {
-        background-image: url("Lemon_Cart.PNG");
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-        width: 50%;
-        max-width: 100%;
-        height: 50vh;
-    }
-
-
-    /* links */
+    /* top links */
     a {
         text-decoration: none;
         color: LightGray;
@@ -147,36 +253,71 @@
     }
 
     p {
-        font-size: 1.2vw;
+        font-size: 1.4vw;
         font-family: textAndPars;
         margin-left: 1vw;
         margin-right: 2vw;
+        color: #355070;
     }
-
-    img {
-        width: 50%;
-        max-width: 100%;
-        margin-top: 3vw;
-        margin-bottom: 3vw;
-    }
-
-    video {
-        width: 60%;
-        margin-left: .7vw;
-        max-width: 100%;
-        margin-top: 2vw;
-    }
-
-    /* how does one do alt text for videos? */
 
     div {
         max-width: 100%;
     }
+
+    .prof img {
+        width: 65%;
+        height: 65%;
+        align-items: center;
+    }
+
+    .left, .contact-info, .right {
+        float: left;
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+        width: 30%;
+        height: 100%;
+    }
+
+    .left {
+        padding-left: 100px;
+    }
+
+
+    /* other links */
+    .prof a {
+        color: #2F4F4F;
+        text-decoration: underline;
+    }
+
+    .prof a:visited {
+        color: black;
+        text-decoration: underline;
+    }
+
+    .prof a:active {
+        color: #2F4F4F !important;
+        text-decoration: underline;
+    }
+
+    .prof a:hover {
+        color: brown;
+        text-decoration: underline;
+    }
+
 </style>
 
+    <head>
+        <link rel="icon" href="profphoto.ico">
+    </head>
+    
 <body>
-    <div class="nameAtTop">
-        <div class="linksToPages">
+        <div class="linksToPages" id="nav">
+            <a class="menuicon" onclick="makeResponsive()">
+               <h2>☰</h2>
+            </a>
             <a href="index.html">
                 <h2>Home</h2>
             </a>
@@ -186,88 +327,58 @@
             <a href="fsfdk.html">
                 <h2>Funeral Services For Deposed Kings</h2>
             </a>
-            <a href="finishlime.html">
+            <a href="finishlime.html" class="currentTab">
                 <h2>Finish Lime</h2>
             </a>
         </div>
+       <div class="nameAtTop">
         <h1>Finish Lime</h1>
     </div>
 
-    <div class="profphoto" style="background-color: #909190">
-        <div>
-            <div class="play-game">
-                <button type="button" onclick="playGame()" class="image-button"
-                    alt="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of her cart, her hair, and her helmet adorned with a lemon pattern."
-                    title="Luelle Amon, a lemon-themed racer with blonde hair in braids seated in a green cart. Visible is the back of the cart, her hair, and her helmet adorned with a lemon pattern."></button>
+    
+    <div class="prof">
+        
+        <div class="left" style="text-align: left;">
+            <p>This was an amazing opportunity working as a programmer and in a 7-person studio team.
+                My role in this project included organization,
+                project management, communicating, researching, and programming. This consisted of working on the
+                collection, inventory
+                and journal system, linking all the pieces of our game together, and the user interface. This was done
+                in Unity software and C# scripts.
+            </p>
 
-                <h3>Click Picture Above to Play</h3>
-                <br><br><br>
-                <video controls>
-                    <source src="luelle.mp4" type="video/mp4">
-                </video>
-                <h3>Timelapse of Lemon Racer</h3>
+        </div>
+        
+        <div class="contact-info">
                 <br>
-                <video controls>
-                    <source src="lemoncart.mp4" type="video/mp4">
-                </video>
-                <h3>Timelapse of Lemon Cart</h3>
-            </div>
+                <h3>View Current Demo</h3>
+                <h4><a href="https://drive.google.com/file/d/1nGoQNzUQo9-3tItuXOEyWYJvtzMcF8q9/view?usp=drive_link">Click To View Work In Progress</a></h4>
+                <br><br>
         </div>
-        <div>
-            <p>Early on in my computer science minor I took CSE 251, which was Intro to Game Programming.
-                This got
-                me familiar with Unity engine as well as programming in C#. My skills have improved a lot since this
-                rendition of the game,
-                and I'm now working on another iteration in an independent study for my final computer science course
-                before graduating.
-                I'm going to transition
-                the game into Unreal engine and work with C++ and/or blueprints.</p>
 
-            <p>For my first rendition of Finish Lime, I developed artwork, animation systems, particles, scoring,
-                saving, exporting
-                a build to be played in browser, shooting, power-ups, and enemies. You play as a fruit-themed racer
-                trying to last as long as they can
-                on the track. By clicking the up
-                arrow, you can destroy any rocks that get in your way, or avoid them by using the arrow keys. Different
-                lemons fall toward you, allowing you to collect them and giving different
-                boosting effects. You have three lives and to replay once they run out simply left-click.
-            </p>
-
-            <p>The first iteration was great for learning how to implement systems and for seeing everything come
-                together in one of the
-                first games I made individually. I hope to improve upon those elements as well as the overall aesthetic as I continue working on it. A major
-                change is that I want a lot of the gameplay
-                to be in 3D, which means I will need to work on improving my skills in Maya and/or Blender. However,
-                some of the UI screens will likely be 2D in
-                order to showcase the character art.  I'm really looking forward to polishing the art, gameplay, and introducing more accessibility features
-                and
-                disability representation.
-            </p>
-
-            <p>To the left and below, you can view different drawing timelapses of and current artwork and models, like
-                what I
-                made in IMS 319,
-                which was Foundations in Digital 3-D Modeling and Animation. More will be coming soon as I continue to
-                further develop this project over the course of Spring 2026.
-            </p>
-
-            <div class="play-game">
-                <img src="lemoncarangle2.jpg" 
-                alt="3D model of lemon car. The car is composed of a yellow football-like shape with a leaf shape as the spoiler. The wheels are lemon slices."
-                title="3D model of lemon car. The car is composed of a yellow football-like shape with a leaf shape as the spoiler. The wheels are lemon slices.">
-                <br><br><br>
-                <video controls style="align-items: center">
-                    <source src="lemoncaranim.mp4" type="video/mp4">
-                </video>
-                <h3>3D Model of Lemon Cart</h3>
-                <br><br><br>
-            </div>
-        </div>
+         <div class="right">
+            <h3>Early Game Development</h3>
+            <img src="fl.JPG"
+            alt="Screenshot of Unity Dev environment, opened on a scene with an open journal and two polaroids on each page, the right filled with gloves and the Myaamia word for them. The background is a wooden floor and white walls. The UI is fall themed with an empty space on the bottom right and a journal button and black circle on the top right.">
+            <img src="fl2.jpg"
+            alt="Screenshot of Unity Dev environment, opened on a scene with a young pixel character standing by a plant, couch, and lamp. The background is a wooden floor and beige walls but also shows a black void on the left. The UI is fall themed with an space on the bottom right showing a map and a journal button and black circle on the top right.">
+         </div>
+        
     </div>
+
 </body>
 
 </html>
-<script>  function playGame() {
-        window.location.href = 'fl.html';
-    }
+
+<script>
+
+function makeResponsive() {
+   var topnav = document.getElementById("nav");
+   if (topnav.className ===  "linksToPages") {
+        topnav.className += " responsive";
+   } else {
+        topnav.className = "linksToPages";
+   }
+}
+    
 </script>
